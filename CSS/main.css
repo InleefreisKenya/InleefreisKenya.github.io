@@ -41,7 +41,7 @@ details
 
 .ConTex h2
 {
-	color: ##A2C012;
+	color: #A2C012;
 }
 
 header
@@ -277,7 +277,7 @@ h3
 #FillHolder
 {
 	float:left;
-	background: #ccc;
+	background: #666;
 	border-radius: 3em;
 	overflow: hidden;
 	box-shadow: 2px 2px 5px #888888;

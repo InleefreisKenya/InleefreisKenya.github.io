@@ -19,14 +19,14 @@ body
 	display: block;
 }
 
+details
+{
+	display:none;
+}
 
 .bg
 {
-	width: 100%;
-	height:100%;
-	border-bottom: solid #2b2b2b 1px;
 	position: fixed;
-	width: 100%;
 	left:0;
 	z-index: -1;
 	
@@ -36,6 +36,12 @@ body
 {
 	position:relative;
 	margin: 0 10%;
+	color: #b2b2b2;
+}
+
+.ConTex h2
+{
+	color: ##A2C012;
 }
 
 header
@@ -164,6 +170,7 @@ h3
 	margin: 10px;
 	color: #ccc;
 	float: left;
+	overflow: hidden;
 }
 
 .boxCaption
@@ -265,4 +272,21 @@ h3
 {
 	transform: rotate(-45deg);
 	background: #A2C012;
+}
+
+#FillHolder
+{
+	float:left;
+	background: #ccc;
+	border-radius: 3em;
+	overflow: hidden;
+	box-shadow: 2px 2px 5px #888888;
+}
+
+#btnFill
+{
+	float: right;
+	height:100%;
+	width: 50px;
+	background-color:#666;
 }

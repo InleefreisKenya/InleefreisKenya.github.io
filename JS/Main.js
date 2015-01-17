@@ -7,7 +7,8 @@ var blogcounter= 0;
 var blogarray = ['box'];
 var ScreenFitter = function() {
 	//Resolution Section
-	$('section').css('height', h*2);
+	$('.bg').css('width', w);
+	$('.bg').css('height', h*3);
 };
 function parallax(){
 	var scrolled = $(window).scrollTop();
@@ -19,9 +20,10 @@ var bd = function(d){ //Box-date
 var ba = function(a){ //Box-author
 	blogcounter++;
 	blogarray[blogcounter]=("box"+blogcounter);
-	$('#'+blogarray[blogcounter]+ ' .pf').css('background','url("../IMG/'+a+'.jpg")');
+	$('#'+blogarray[blogcounter]+ ' .pf').css('background','url("../IMG/'+a.toLowerCase()+'.jpg")');
 	$('#'+blogarray[blogcounter]+ ' .pf').css('background-size','auto 100%');
 	$('#'+blogarray[blogcounter]+ ' a').text(a);
+	$('#'+blogarray[blogcounter] +' details').attr('class', 'box_'+a.toLowerCase());
 };
 var br = function(r){ //Box-day-rating
 	switch (r){

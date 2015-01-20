@@ -6,7 +6,6 @@ var url = window.location.hash;
 var blogcounter= 0;
 var blogarray = ['box'];
 var ScreenFitter = function() {
-	//Resolution Section
 	$('.bg').css('width', w);
 	$('.bg').css('height', h*3);
 };

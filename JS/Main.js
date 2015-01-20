@@ -49,3 +49,38 @@ var br = function(r){ //Box-day-rating
 			break;
 	}
 };
+var SearchFilter = function () {
+	var n = $('#txtFill').val();
+	var txt = "box_"+ n;
+	console.log('#'+blogarray[2]+' details');
+	console.log(txt);
+	console.log(blogcounter);
+	var bvisiblecounter=0;
+	for (var i=0; i < blogcounter+1; i++)
+	{
+		console.log('#'+blogarray[i]+' details');
+		if ($('#'+blogarray[i]+' details').attr('class') == txt.toLowerCase())
+		{
+			console.log(txt);
+			$('#'+blogarray[i]).fadeIn(50);
+			bvisiblecounter++;
+			$('#searchpf').css('background', 'url("IMG/' + n.toLowerCase() + '.jpg")no-repeat');
+			$('#searchpf').css('background-size', 'auto 100%');
+		}
+		else
+		{
+			$('#'+blogarray[i]).fadeOut(50);
+		}
+	}
+	if(bvisiblecounter==0)
+	{
+		$('#searchpf').css('background', 'url("IMG/question.png")no-repeat');
+		$('#searchpf').css('background-size', 'auto 100%');
+	}
+	if (n=="")
+	{
+		$('.box').fadeIn(20);
+	}
+	$('#bvisiblecount').text(bvisiblecounter);
+	$('#txtFill').val('');
+}

@@ -90,10 +90,12 @@ In 2013 gaat de aandacht naar de uitwisseling rond het IT-beleid, ICT-integratie
 		</section>
 		<section id="p300Blog" style="margin-top: 0%; background:#2b2b2b;height: 100% !important;color:#ccc;background:#ccc;">
 			<div style="width:100%; height: 400px; background:url('IMG/groep.jpg')no-repeat;background-size:100%;background-position: 0 -75px;"></div>
-			<div id="Filter" style="left:0;height:150px; width:100%; background: #333;vertical-align:middle;">
-				<div id="searchpf" class="pf" style="margin: 0;background:url('IMG/groep.jpg');background-size: auto 100%;float:left;height:150px;width:150px; background-position: -40px 0;"></div>
+			<img id="btnsearch" src="IMG/search.png" style="float:right;height:25px;margin:10px;"/>
+			<div id="Filter" style="display:none;left:0;height:150px; width:100%; background: #333;vertical-align:middle;">
+				<img id="closeSearch" style="width: 25px;float:right;margin: 10px;" src="IMG/close.png"/>
+				<div id="searchpf" class="pf" style="border-radius: 0;border-right-top-radius: 100%; border-right-bottom-radius: 100%; margin: 0;background:url('IMG/groep.jpg');background-size: auto 100%;float:left;height:150px;width:150px; background-position: -40px 0;"></div>
 				<div id="FillHolder">
-					<input type="text" id="txtFill"><div id="btnFill">Search</div>
+					<input type="text" size="85%" placeholder="Typ hier de persoon in die u zoekt..." id="txtFill"><div id="btnFill"></div>
 				</div>
 			</div>
 			<div id="ConFil">
@@ -452,42 +454,40 @@ bd('16-1-2015 22:31:48');
 			$(".boxCaption", this).animate({
 				height:'450px'
 			});
-			$('.blogbox').fadeIn(75);
 			$('.boxCaption', this).fadeIn(20);
+			$('.Closebox', this).fadeIn(20);
 		});
 		
 		$('.Closebox').click(function() {
-			$('this').fadeOut(50);
-			$('#box_active').animate({
+			$(this).fadeOut(50);
+			$('.box', this).animate({
 				height:'250px',
 				width:'250px'
 			});
 		});
 		
+		$('#closeSearch').click(function(){
+			$('.box').fadeIn(20);
+			$('#Filter').slideUp();
+			setTimeout(function(){
+				$('#btnsearch').fadeIn(50);
+			},500);
+		});
+		
 		$('#btnFill').click(function() {
-			var n = $('#txtFill').val();
-			var txt = "box_"+ n;
-			console.log('#'+blogarray[2]+' details');
-			console.log(txt);
-			console.log(blogcounter);
-			var bvisiblecounter=0;
-			for (var i=0; i < blogcounter+1; i++)
+			SearchFilter();
+		});
+		
+		$('#btnsearch').click(function(){
+			$(this).fadeOut(10);
+			$('#Filter').slideDown();
+		});
+		
+		$('#txtFill').keyup(function(e){
+			if(e.keyCode == 13)
 			{
-				console.log('#'+blogarray[i]+' details');
-				if ($('#'+blogarray[i]+' details').attr('class') == txt.toLowerCase())
-				{
-					console.log(txt);
-					$('#'+blogarray[i]).fadeIn(50);
-					bvisiblecounter++;
-					$('#searchpf').css('background', 'url("IMG/' + n.toLowerCase() + '.jpg")no-repeat');
-					$('#searchpf').css('background-size', 'auto 100%');
-				}
-				else
-				{
-					$('#'+blogarray[i]).fadeOut(50);
-				}
+				SearchFilter();
 			}
-			$('#bvisiblecount').text(bvisiblecounter);
 		});
 		</script>
 	</body>

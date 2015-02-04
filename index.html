@@ -26,8 +26,6 @@
 		<noscript style="font: small-caps 72px bold verdana, arial; margin: 20px 0; text-align: center;" async>Sorry, your browser does not support JavaScript!<br>This website works the best with <a href="http://chrome.google.com/">Chrome</a>!</noscript>
 	</head>
 	<body>
-	
-		
 		<img src="IMG/groep.jpg" style="z-index:-50;left:0;position:fixed;width:100%;height100:100vh;"/>
 		<header id="Closed" style="display:none;">
 			<!--Menu Choice-->
@@ -112,6 +110,7 @@ In 2013 gaat de aandacht naar de uitwisseling rond het IT-beleid, ICT-integratie
 					<div class="blogbox" id="">
 						<div class="filter">
 							<img class="Closebox" style="display:none;" src="IMG/close.png"/>
+							<img class="btnCommentbox" style="right: 30;" src="IMG/comments.png"/>
 							<div class="textbox">
 								<script>
 ba('Groep');
@@ -124,9 +123,12 @@ bd('21-1-2015 00:55:42');
 <p><strong>Daar was hij dan.<br><em>Onze allereerste echte voorbereidingsdag voor onze inleefreis naar Kenya.</em><br><em>Voor iedereen was het toch wel een beetje een spannende dag.</em><br><em>Het was de eerste dag waarop we de groep EN begeleiders beter leerden kennen.</em>  
 </strong>  <br><br>    <br><br>  Lekker warm in het zonnetje namen we plaats aan de picknickbankjes op onze speelplaats <br>
   waar we in alle rust en vrede met elkaar kennis gingen maken.<br>  <br>Via een doorschuifsysteem kwamen we met alle mede-inleefreizigers in gesprek 
-  <br>en kwamen we meer te weten over elkaars hobby’s, eetgewoonten, favoriete lessen op school en nog veel meer!</p><br><br>
-<div class="fb-comments" data-href="http://inleefreiskenya.github.io#blog1_Author:groep" data-width="500" data-numposts="5" data-colorscheme="dark"></div><br><br><br><br><br><br>
+  <br>en kwamen we meer te weten over elkaars hobby’s, eetgewoonten, favoriete lessen op school en nog veel meer!</p>
+
 							</div>
+						</div>
+						<div class="commentbox" style="display:none;height: 500px; width:100%;background: #000;z-index:10000; position: static;">
+							<div class="fb-comments" data-href="http://inleefreiskenya.github.io#blog1_Author:groep" data-numposts="2" data-colorscheme="dark" data-width="500" style=""></div>
 						</div>
 					</div>
 				</div>
@@ -135,7 +137,8 @@ bd('21-1-2015 00:55:42');
 					<div class="blogbox" id="">
 						<div class="filter">
 							<img class="Closebox" style="display:none;" src="IMG/close.png"/>
-							<div class="textbox">
+							<img class="btnCommentbox" style="right: 30;" src="IMG/comments.png"/>
+							<div class="textbox" style="height:500px;">
 								<script>
 ba('Groep');
 br(4);
@@ -146,8 +149,10 @@ bd('23-1-2015 09:30:12');
 <h2>In de krant! <br></h2>
 <p><strong>Gisteren geïnterviewd vandaag al in de krant.
 </strong>  <br><br>Gisteren tijdens onze laatste voorbereidingsdag werden we geïnterviewd door de  <a href="https://gva.be/" target="_blank">Gazet van Antwerpen</a> en het  <a href="https://hln.be/" target="_blank">Het Laatste Nieuws</a>.<br> <br> <a href="http://www.gva.be/cnt/dmf20150122_01488363/leerlingen-van-immaculata-op-inleefreis-in-kenia" target="_blank">Klik hier om het artikel van de Gazet van Antwerpen te lezen.</a><br><a href="http://www.hln.be/regio/nieuws-uit-malle/-romereis-wij-trekken-naar-kenia-a2191954/" target="_blank">Klik hier om het artikel van Het Laatste Nieuws te lezen.</a><br> </p>
-
 							</div>
+						</div>
+						<div class="commentbox" style="display:none;height: 500px; width:100%;background: #000;z-index:10000; position: static;">
+							<div class="fb-comments" data-href="http://inleefreiskenya.github.io#blog2_Author:groep" data-numposts="2" data-colorscheme="dark" data-width="500" style=""></div>
 						</div>
 					</div>
 				</div><div class="box" id="box3"><details></details>
@@ -549,6 +554,23 @@ bd('21-1-2015 01:13:08');
 			<div class="pf" style="margin:0;background:url('IMG/William.jpg');background-size: auto 100%;"></div>
 		</div>
 		<script>
+		  window.fbAsyncInit = function() {
+			FB.init({
+			  appId      : '681350305306662',
+			  xfbml      : true,
+			  version    : 'v2.2'
+			});
+		  };
+
+		  (function(d, s, id){
+			 var js, fjs = d.getElementsByTagName(s)[0];
+			 if (d.getElementById(id)) {return;}
+			 js = d.createElement(s); js.id = id;
+			 js.src = "//connect.facebook.net/en_US/sdk.js";
+			 fjs.parentNode.insertBefore(js, fjs);
+		   }(document, 'script', 'facebook-jssdk'));
+		</script>
+		<script>
 		$('#Index').click(function(){
 			$("html, body").animate({scrollTop: $('#p100Home').offset().top }, 1000);
 		});
@@ -600,29 +622,52 @@ bd('21-1-2015 01:13:08');
 		});*/
 		
 		$('.box').click(function() {
-			$('.boxCaption', this).attr('id', 'box_active');
-			$(".boxCaption", this).fadeIn(50);
-			$(this).animate({
-				height:'500px',
-				width:'100%',
-				margin: '0 0 10px 0',
-			});
-			$(".boxCaption", this).animate({
-				height:'450px'
-			});
-			$('.boxCaption', this).fadeIn(20);
-			$('.Closebox', this).fadeIn(20);
+			if ($('.boxCaption' ,this).attr('id') == "")
+			{
+			
+				closebox();
+				$('.boxCaption', this).attr('id', 'box_active');
+				$(this).attr('class', 'b_active');
+				$(".boxCaption", this).fadeIn(1);
+				$(this).animate({
+					top: "200px"
+				});
+				$(this).animate({
+					height:'500px',
+					width:'100%',
+					margin: '0 0 10px 0',
+				},750);
+				$(".boxCaption", this).animate({
+					height:'450px'
+				},750);
+				$('.Closebox', this).fadeIn(1000);
+			}
 		});
+		var closebox = function (){
+			$('.Closebutton').fadeOut(50);
+			$('.b_active').animate({
+				height:'250px',
+				width:'250px',
+				margin:'10px'
+			},750);
+			$(".boxCaption").animate({
+				height:'200px'
+			},750);
+			$('.boxCaption').fadeOut(20);
+			$('.Closebox').fadeOut(20);
+			$('.b_active').attr('class', "box");
+		}
 		
 		$('.Closebox').click(function() {
-			$(this).fadeOut(50);
-			$('.box', this).animate({
-				height:'250px',
-				width:'250px'
-			});
+			closebox();
+		});
+		
+		$('.btnCommentbox').click(function() {
+			$('.commentbox').fadeIn(50);
 		});
 		
 		$('#closeSearch').click(function(){
+			closebox();
 			$('.box').fadeIn(20);
 			$('#Filter').slideUp();
 			setTimeout(function(){
@@ -632,6 +677,7 @@ bd('21-1-2015 01:13:08');
 		
 		$('#btnFill').click(function() {
 			SearchFilter();
+			closebox();
 		});
 		
 		$('#btnsearch').click(function(){
@@ -643,25 +689,9 @@ bd('21-1-2015 01:13:08');
 			if(e.keyCode == 13)
 			{
 				SearchFilter();
+				closebox();
 			}
 		});
-		</script>
-		<script>
-		  window.fbAsyncInit = function() {
-			FB.init({
-			  appId      : '681350305306662',
-			  xfbml      : true,
-			  version    : 'v2.2'
-			});
-		  };
-
-		  (function(d, s, id){
-			 var js, fjs = d.getElementsByTagName(s)[0];
-			 if (d.getElementById(id)) {return;}
-			 js = d.createElement(s); js.id = id;
-			 js.src = "//connect.facebook.net/en_US/sdk.js";
-			 fjs.parentNode.insertBefore(js, fjs);
-		   }(document, 'script', 'facebook-jssdk'));
 		</script>
 	</body>
 </html>

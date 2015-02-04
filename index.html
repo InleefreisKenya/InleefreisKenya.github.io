@@ -26,6 +26,17 @@
 		<noscript style="font: small-caps 72px bold verdana, arial; margin: 20px 0; text-align: center;" async>Sorry, your browser does not support JavaScript!<br>This website works the best with <a href="http://chrome.google.com/">Chrome</a>!</noscript>
 	</head>
 	<body>
+	
+		<div id="fb-root"></div>
+		<script>
+		(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=681350305306662&version=v2.0";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+		</script>
 		<img src="IMG/groep.jpg" style="z-index:-50;left:0;position:fixed;width:100%;height100:100vh;"/>
 		<header id="Closed" style="display:none;">
 			<!--Menu Choice-->
@@ -123,7 +134,7 @@ bd('21-1-2015 00:55:42');
 </strong>  <br><br>    <br><br>  Lekker warm in het zonnetje namen we plaats aan de picknickbankjes op onze speelplaats <br>
   waar we in alle rust en vrede met elkaar kennis gingen maken.<br>  <br>Via een doorschuifsysteem kwamen we met alle mede-inleefreizigers in gesprek 
   <br>en kwamen we meer te weten over elkaars hobby’s, eetgewoonten, favoriete lessen op school en nog veel meer!</p>
-
+<div class="fb-comments" data-href="http://inleefreiskenya.github.io#blog1_Author:groep" data-width="500" data-numposts="5" data-colorscheme="dark"></div>
 							</div>
 						</div>
 					</div>
@@ -643,6 +654,23 @@ bd('21-1-2015 01:13:08');
 				SearchFilter();
 			}
 		});
+		</script>
+		<script>
+		  window.fbAsyncInit = function() {
+			FB.init({
+			  appId      : '681350305306662',
+			  xfbml      : true,
+			  version    : 'v2.2'
+			});
+		  };
+
+		  (function(d, s, id){
+			 var js, fjs = d.getElementsByTagName(s)[0];
+			 if (d.getElementById(id)) {return;}
+			 js = d.createElement(s); js.id = id;
+			 js.src = "//connect.facebook.net/en_US/sdk.js";
+			 fjs.parentNode.insertBefore(js, fjs);
+		   }(document, 'script', 'facebook-jssdk'));
 		</script>
 	</body>
 </html>

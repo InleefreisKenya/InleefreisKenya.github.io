@@ -657,11 +657,13 @@ bd('21-1-2015 01:13:08');
 			$('.Closebox').fadeOut(20);
 			$('.b_active').scrollTop();
 			$('.b_active').attr('class', "box");
-			$('.boxCaption', this).attr('id', '');
+			$('.boxCaption').attr('id', '');
+			
 		}
 		
-		$('.Closebox').click(function() {
+		$('.Closebox').click(function(event) {
 			closebox();
+			event.stopPropagation();
 		});
 		
 		$('.btnCommentbox').click(function() {

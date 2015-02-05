@@ -208,6 +208,12 @@ h3
 	overflow-y: scroll;
 }
 
+.textbox
+{
+	margin-left: 20%;
+	margin-right: 5%;
+}
+
 .filter
 {
 	width: 100%;

@@ -1,6 +1,6 @@
 var w=window.innerWidth;
 var h=window.innerHeight;
-if(w<h&&screen.width<=800){window.location="#"}
+if(w<h&&screen.width<=800){window.location="http://inleefreiskenya.github.io/mobile/"}
 
 var url = window.location.hash;
 var blogcounter= 0;
